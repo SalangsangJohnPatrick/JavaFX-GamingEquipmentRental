@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gamingequipmentrental.DashboardController">
+   <children>
+      <AnchorPane fx:id="mainForm" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="256.0" layoutY="234.0" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form" stylesheets="@dashboardDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="274.0" layoutY="-77.0" prefHeight="35.0" prefWidth="1280.0" styleClass="top-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon glyphName="GAMEPAD" layoutX="8.0" layoutY="24.0" size="1.5em" />
+                              <Label layoutX="37.0" layoutY="9.0" text="Gaming Equipment Rental">
+                                 <font>
+                                    <Font name="Tahoma" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="close" layoutX="1228.0" layoutY="2.0" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="60.0" styleClass="close" stylesheets="@dashboardDesign.css" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="CLOSE" size="1.2em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="minimize" layoutX="1178.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimize" prefHeight="25.0" prefWidth="40.0" styleClass="minimize" stylesheets="@dashboardDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="MINUS" size="1.2em" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutY="163.0" prefHeight="675.0" prefWidth="200.0" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="68.0" layoutY="98.0" size="7em" />
+                              <Label alignment="CENTER" layoutX="50.0" layoutY="121.0" prefWidth="100.0" text="Welcome," textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="username" alignment="CENTER" layoutX="50.0" layoutY="146.0" prefWidth="100.0" text="Admin" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="100.0" layoutX="83.0" layoutY="204.0" startX="-65.5" stroke="WHITE" />
+                              <Button fx:id="homeFormButton" layoutX="26.0" layoutY="232.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="navigation-btns" stylesheets="@dashboardDesign.css" text="Home">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="HOME" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="peripheralsFormButton" layoutX="25.0" layoutY="283.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="navigation-btns" stylesheets="@dashboardDesign.css" text="Peripherals">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="GAMEPAD" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="rentFormButton" layoutX="26.0" layoutY="330.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="150.0" styleClass="navigation-btns" stylesheets="@dashboardDesign.css" text="Rent">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="logoutButton" layoutX="8.0" layoutY="642.0" mnemonicParsing="false" onAction="#logout" stylesheets="@dashboardDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="SIGN_OUT" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="logout-btn" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                              <Label layoutX="40.0" layoutY="646.0" text="Log out" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <styleClass>
+                              <String fx:value="navigation-form" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="homeForm" layoutX="209.0" layoutY="186.0" prefHeight="675.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="1055.0" stylesheets="@dashboardDesign.css">
+                                 <children>
+                                    <AnchorPane layoutX="14.0" layoutY="10.0" prefHeight="180.0" prefWidth="300.0" stylesheets="@dashboardDesign.css">
+                                       <children>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="GAMEPAD" layoutX="32.0" layoutY="106.0" size="5em" />
+                                          <Label layoutX="117.0" layoutY="105.0" text="Available Peripherals" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="homePeripherals" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="55.0" prefHeight="42.0" prefWidth="150.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="navigation-form" />
+                                          <String fx:value="box-rad" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="378.0" layoutY="10.0" prefHeight="180.0" prefWidth="300.0" stylesheets="@dashboardDesign.css">
+                                       <children>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="MONEY" layoutX="32.0" layoutY="106.0" size="5em" />
+                                          <Label layoutX="117.0" layoutY="105.0" text="Total Revenue" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="homeTotalRevenue" alignment="CENTER_RIGHT" layoutX="110.0" layoutY="55.0" prefHeight="42.0" prefWidth="150.0" text="₱0.0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="navigation-form" />
+                                          <String fx:value="box-rad" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="741.0" layoutY="10.0" prefHeight="180.0" prefWidth="300.0" stylesheets="@dashboardDesign.css">
+                                       <children>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="USERS" layoutX="21.0" layoutY="109.0" size="5em" />
+                                          <Label layoutX="106.0" layoutY="108.0" text="Number of Customers" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="homeNumCustomers" alignment="CENTER_RIGHT" layoutX="107.0" layoutY="58.0" prefHeight="42.0" prefWidth="150.0" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial Bold" size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="navigation-form" />
+                                          <String fx:value="box-rad" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <AnchorPane layoutX="13.0" layoutY="228.0" prefHeight="435.0" prefWidth="1055.0" stylesheets="@dashboardDesign.css">
+                                 <children>
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="415.0" prefWidth="525.0" stylesheets="@dashboardDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <BarChart fx:id="homeRevenueChart" layoutX="9.0" layoutY="10.0" prefHeight="395.0" prefWidth="505.0" title="Revenue Chart">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="546.0" layoutY="10.0" prefHeight="415.0" prefWidth="495.0" stylesheets="@dashboardDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <LineChart fx:id="homeCustomersChart" layoutX="10.0" layoutY="10.0" prefHeight="395.0" prefWidth="475.0" title="Number of Users ">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="peripheralsForm" layoutX="14.0" layoutY="30.0" prefHeight="675.0" prefWidth="1080.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="250.0" prefWidth="1060.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="41.0" layoutY="26.0" text="EqID:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="peripheralsEqID" layoutX="102.0" layoutY="24.0" prefHeight="25.0" prefWidth="200.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="41.0" layoutY="88.0" text="Type:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="peripheralsType" layoutX="102.0" layoutY="86.0" prefHeight="25.0" prefWidth="200.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="31.0" layoutY="145.0" text="Brand:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="peripheralsBrand" layoutX="102.0" layoutY="143.0" prefHeight="25.0" prefWidth="200.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="31.0" layoutY="203.0" text="Model:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="peripheralsModel" layoutX="102.0" layoutY="201.0" prefHeight="25.0" prefWidth="200.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="372.0" layoutY="26.0" text="Status:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="peripheralsStatus" layoutX="443.0" layoutY="24.0" onAction="#equipmentStatus" prefHeight="25.0" prefWidth="200.0" promptText="Select..." styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <AnchorPane layoutX="372.0" layoutY="59.0" prefHeight="167.0" prefWidth="272.0" stylesheets="@dashboardDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <ImageView fx:id="peripheralsImageView" fitHeight="167.0" fitWidth="272.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Button fx:id="peripheralsImportButton" layoutY="141.0" mnemonicParsing="false" onAction="#equipmentImportImage" prefHeight="25.0" prefWidth="272.0" styleClass="import-button" stylesheets="@dashboardDesign.css" text="Import" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="694.0" layoutY="26.0" text="Rental Price:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="peripheralsPrice" layoutX="813.0" layoutY="24.0" prefHeight="25.0" prefWidth="200.0" promptText="₱0.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Button fx:id="peripheralsInsertButton" layoutX="713.0" layoutY="85.0" mnemonicParsing="false" onAction="#equipmentInsert" prefHeight="50.0" prefWidth="125.0" stylesheets="@dashboardDesign.css" text="Insert">
+                                       <styleClass>
+                                          <String fx:value="insert-button" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="peripheralsUpdateButton" layoutX="861.0" layoutY="85.0" mnemonicParsing="false" onAction="#equipmentUpdate" prefHeight="50.0" prefWidth="125.0" stylesheets="@dashboardDesign.css" text="Update">
+                                       <styleClass>
+                                          <String fx:value="update-button" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="peripheralsDeleteButton" layoutX="713.0" layoutY="156.0" mnemonicParsing="false" onAction="#equipmentDelete" prefHeight="50.0" prefWidth="125.0" stylesheets="@dashboardDesign.css" text="Delete">
+                                       <styleClass>
+                                          <String fx:value="delete-button" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="peripheralsClearButton" layoutX="861.0" layoutY="156.0" mnemonicParsing="false" onAction="#equipmentClear" prefHeight="50.0" prefWidth="125.0" stylesheets="@dashboardDesign.css" text="Clear">
+                                       <styleClass>
+                                          <String fx:value="clear-button" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="274.0" prefHeight="390.0" prefWidth="1060.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="peripheralsTableView" layoutX="10.0" layoutY="60.0" onMouseClicked="#equipmentSelect" prefHeight="320.0" prefWidth="1040.0">
+                                      <columns>
+                                        <TableColumn fx:id="peripheralsColEqID" prefWidth="173.0" text="EqID" />
+                                        <TableColumn fx:id="peripheralsColType" prefWidth="173.0" text="Type" />
+                                          <TableColumn fx:id="peripheralsColBrand" prefWidth="173.0" text="Brand" />
+                                          <TableColumn fx:id="peripheralsColModel" prefWidth="173.0" text="Model" />
+                                          <TableColumn fx:id="peripheralsColPrice" prefWidth="173.0" text="Price" />
+                                          <TableColumn fx:id="peripheralsColStatus" prefWidth="173.0" text="Status" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="peripheralsSearch" layoutX="10.0" layoutY="14.0" onKeyTyped="#equipmentSearch" prefHeight="29.0" prefWidth="290.0" promptText="Search..." styleClass="search" stylesheets="@dashboardDesign.css" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="14.0" layoutY="33.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="rentForm" layoutX="110.0" layoutY="138.0" prefHeight="675.0" prefWidth="1080.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="250.0" prefWidth="1060.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="41.0" layoutY="26.0" text="EqID:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="rentEqID" layoutX="97.0" layoutY="26.0" onAction="#rentEqID" prefHeight="25.0" prefWidth="200.0" promptText="Select..." styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="41.0" layoutY="89.0" text="Type:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="rentType" layoutX="97.0" layoutY="87.0" onAction="#rentEqType" prefHeight="25.0" prefWidth="200.0" promptText="Select..." styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="31.0" layoutY="145.0" text="Brand:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="rentBrand" layoutX="97.0" layoutY="144.0" onAction="#rentEqBrand" prefHeight="25.0" prefWidth="200.0" promptText="Select..." styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="31.0" layoutY="203.0" text="Model:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="rentModel" layoutX="97.0" layoutY="201.0" onAction="#rentEqModel" prefHeight="25.0" prefWidth="200.0" promptText="Select..." styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="373.0" layoutY="28.0" text="First Name:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="firstName" layoutX="476.0" layoutY="26.0" prefHeight="25.0" prefWidth="200.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="373.0" layoutY="89.0" text="Last Name:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="lastName" layoutX="476.0" layoutY="87.0" prefHeight="25.0" prefWidth="200.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="376.0" layoutY="146.0" text="Rent Date:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="rentDate" layoutX="476.0" layoutY="143.0" prefHeight="25.0" prefWidth="200.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="360.0" layoutY="203.0" text="Rent Return:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="rentReturn" layoutX="476.0" layoutY="201.0" onAction="#rentDisplayTotal" prefHeight="25.0" prefWidth="200.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="757.0" layoutY="89.0" text="Amount:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="rentAmount" layoutX="833.0" layoutY="85.0" onAction="#rentAmount" prefHeight="29.0" prefWidth="200.0" promptText="₱0.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="778.0" layoutY="28.0" text="Total:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="rentTotal" layoutX="839.0" layoutY="24.0" text="₱0.0">
+                                       <font>
+                                          <Font name="Arial" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="756.0" layoutY="145.0" text="Change:">
+                                       <font>
+                                          <Font name="Arial" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="rentChange" layoutX="839.0" layoutY="143.0" text="₱0.0">
+                                       <font>
+                                          <Font name="Arial" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="rentButton" layoutX="896.0" layoutY="192.0" mnemonicParsing="false" onAction="#rentPay" prefHeight="35.0" prefWidth="125.0" stylesheets="@dashboardDesign.css" text="Rent">
+                                       <styleClass>
+                                          <String fx:value="insert-button" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="10.0" layoutY="274.0" prefHeight="390.0" prefWidth="1060.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="Peripherals">
+                                       <font>
+                                          <Font name="Arial Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="rentTableView" layoutX="10.0" layoutY="60.0" prefHeight="320.0" prefWidth="1040.0">
+                                       <columns>
+                                          <TableColumn fx:id="rentColEqID" prefWidth="173.0" text="EqID" />
+                                          <TableColumn fx:id="rentColType" prefWidth="173.0" text="Type" />
+                                          <TableColumn fx:id="rentColBrand" prefWidth="173.0" text="Brand" />
+                                          <TableColumn fx:id="rentColModel" prefWidth="173.0" text="Model" />
+                                          <TableColumn fx:id="rentColPrice" prefWidth="173.0" text="Price" />
+                                          <TableColumn fx:id="rentColStatus" prefWidth="173.0" text="Status" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
